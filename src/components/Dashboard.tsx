@@ -25,6 +25,7 @@ interface DashboardProps {
   onRetakeInterview: () => void;
   onExploreCareer: () => void;
   onGenerateRoadmap: () => void;
+  onScheduleStudyTime: () => void;
 }
 
 export const Dashboard = ({ 
@@ -33,7 +34,8 @@ export const Dashboard = ({
   selectedCareer,
   onRetakeInterview,
   onExploreCareer,
-  onGenerateRoadmap
+  onGenerateRoadmap,
+  onScheduleStudyTime
 }: DashboardProps) => {
   const [roadmapProgress] = useState(65); // Mock progress
   const [readinessScore] = useState(78); // Mock score
@@ -295,6 +297,7 @@ export const Dashboard = ({
             
             <Button 
               variant="outline" 
+              onClick={onScheduleStudyTime}
               className="glass-card"
             >
               <Calendar className="h-4 w-4 mr-2" />

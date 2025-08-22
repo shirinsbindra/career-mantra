@@ -4,8 +4,10 @@ import { UploadPanel, ParsedProfile } from '@/components/UploadPanel';
 import { AlignmentWizard, UserPreferences } from '@/components/AlignmentWizard';
 import { CareerAnalyzer } from '@/components/CareerAnalyzer';
 import { Dashboard } from '@/components/Dashboard';
+import { Roadmap } from '@/components/Roadmap';
+import { ScheduleStudyTime } from '@/components/ScheduleStudyTime';
 
-type AppState = 'landing' | 'upload' | 'alignment' | 'analysis' | 'dashboard';
+type AppState = 'landing' | 'upload' | 'alignment' | 'analysis' | 'dashboard' | 'roadmap' | 'schedule';
 
 const Index = () => {
   const [currentState, setCurrentState] = useState<AppState>('landing');
@@ -42,8 +44,15 @@ const Index = () => {
   };
 
   const handleGenerateRoadmap = () => {
-    // Handle roadmap generation
-    console.log('Generating roadmap...');
+    setCurrentState('roadmap');
+  };
+
+  const handleScheduleStudyTime = () => {
+    setCurrentState('schedule');
+  };
+
+  const handleBackToDashboard = () => {
+    setCurrentState('dashboard');
   };
 
   const renderCurrentView = () => {
@@ -75,6 +84,25 @@ const Index = () => {
             onRetakeInterview={handleRetakeInterview}
             onExploreCareer={handleExploreCareer}
             onGenerateRoadmap={handleGenerateRoadmap}
+            onScheduleStudyTime={handleScheduleStudyTime}
+          />
+        ) : null;
+      
+      case 'roadmap':
+        return profile && preferences && selectedCareer ? (
+          <Roadmap
+            profile={profile}
+            preferences={preferences}
+            selectedCareer={selectedCareer}
+            onBack={handleBackToDashboard}
+          />
+        ) : null;
+      
+      case 'schedule':
+        return preferences ? (
+          <ScheduleStudyTime
+            preferences={preferences}
+            onBack={handleBackToDashboard}
           />
         ) : null;
       
