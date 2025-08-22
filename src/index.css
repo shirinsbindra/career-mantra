@@ -1,96 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Mentra Design System - Dark theme with blue/green gradients */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
+    /* Mentra Dark Theme */
+    --background: 216 28% 7%;  /* #0A0F14 */
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 216 28% 8%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 216 28% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 188 86% 53%;  /* Cyan #22d3ee */
+    --primary-foreground: 216 28% 7%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 142 69% 58%;  /* Green #22c55e */
+    --secondary-foreground: 216 28% 7%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 25% 15%;
+    --muted-foreground: 217 10% 64%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 215 25% 18%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 215 25% 18%;
+    --input: 215 25% 15%;
+    --ring: 188 86% 53%;
+
+    --radius: 1rem;
+
+    /* Mentra Brand Colors */
+    --mentra-cyan: 188 86% 53%;      /* #22d3ee */
+    --mentra-green: 142 69% 58%;     /* #22c55e */
+    --mentra-purple: 250 84% 54%;    /* #6366f1 */
+    --mentra-blue: 217 91% 60%;      /* #3b82f6 */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--mentra-cyan)), hsl(var(--mentra-green)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--mentra-blue)), hsl(var(--mentra-purple)));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--mentra-cyan) / 0.3), transparent);
+    
+    /* Glass Effect */
+    --glass-bg: hsl(var(--background) / 0.8);
+    --glass-border: hsl(var(--border) / 0.2);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(var(--mentra-cyan) / 0.3);
+    --shadow-card: 0 8px 32px hsl(216 28% 4% / 0.6);
+    --shadow-elevated: 0 25px 50px hsl(216 28% 4% / 0.8);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    @apply dark;
+  }
+}
+
+@layer components {
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[hsl(var(--mentra-cyan))] to-[hsl(var(--mentra-green))] bg-clip-text text-transparent;
+  }
+
+  /* Glass Card */
+  .glass-card {
+    @apply backdrop-blur-xl bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Gradient Border */
+  .gradient-border {
+    position: relative;
+    background: var(--gradient-primary);
+    border-radius: 1rem;
+    padding: 1px;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: hsl(var(--background));
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  /* Animated Gradient */
+  .animated-gradient {
+    background: var(--gradient-primary);
+    background-size: 300% 300%;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  /* Progress Bar */
+  .progress-glow {
+    background: var(--gradient-primary);
+    box-shadow: 0 0 20px hsl(var(--mentra-cyan) / 0.5);
+    border-radius: 9999px;
+  }
+
+  /* Hover Glow */
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Upload Zone */
+  .upload-zone {
+    background: radial-gradient(circle at center, hsl(var(--mentra-cyan) / 0.1), transparent),
+                linear-gradient(135deg, hsl(var(--background)), hsl(var(--accent)));
+    border: 2px dashed hsl(var(--mentra-cyan) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .upload-zone.dragover {
+    border-color: hsl(var(--mentra-cyan));
+    background: radial-gradient(circle at center, hsl(var(--mentra-cyan) / 0.2), transparent),
+                linear-gradient(135deg, hsl(var(--background)), hsl(var(--accent)));
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Career Card */
+  .career-card {
+    @apply glass-card hover-glow cursor-pointer p-6 transition-all duration-300;
+    background: linear-gradient(135deg, 
+      hsl(var(--card) / 0.9), 
+      hsl(var(--accent) / 0.5)
+    );
+  }
+
+  .career-card:hover {
+    background: linear-gradient(135deg, 
+      hsl(var(--card)), 
+      hsl(var(--accent) / 0.7)
+    );
+  }
+
+  /* Readiness Progress */
+  .readiness-bar {
+    background: linear-gradient(90deg, 
+      hsl(var(--muted)), 
+      hsl(var(--muted))
+    );
+    overflow: hidden;
+    border-radius: 9999px;
+  }
+
+  .readiness-fill {
+    background: var(--gradient-primary);
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 1s ease-out;
+    box-shadow: 0 0 20px hsl(var(--mentra-cyan) / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Font weights */
+  .font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Animation delays */
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--mentra-cyan) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--mentra-cyan) / 0.6);
   }
 }
 
