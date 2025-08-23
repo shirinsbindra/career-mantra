@@ -45,6 +45,7 @@ export const CareerAnalyzer = ({ profile, preferences, onCareerSelect }: CareerA
   const generateRecommendations = (profile: ParsedProfile, preferences: UserPreferences): CareerRecommendation[] => {
     // Base career templates
     const careerTemplates: Record<string, CareerRecommendation> = {
+      // Technology Careers
       'Frontend Developer': {
         title: 'Frontend Developer',
         whyFit: 'Your technical skills and creative problem-solving align perfectly with modern frontend development.',
@@ -63,14 +64,14 @@ export const CareerAnalyzer = ({ profile, preferences, onCareerSelect }: CareerA
         growthOutlook: 'Exceptional demand (+35% growth)',
         description: 'Turn complex data into actionable business insights and predictive models.'
       },
-      'Product Manager': {
-        title: 'Product Manager',
-        whyFit: 'Your communication skills and strategic thinking are perfect for leading product development.',
-        primarySkills: ['Analytics', 'Strategy', 'Communication', 'Agile', 'User Research'],
-        confidence: 0.75,
-        salaryRange: '$90,000 - $160,000',
-        growthOutlook: 'Strong demand (+20% growth)',
-        description: 'Guide product vision and work with teams to deliver solutions users love.'
+      'DevOps Engineer': {
+        title: 'DevOps Engineer',
+        whyFit: 'Your technical skills and systematic approach are perfect for modern infrastructure.',
+        primarySkills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
+        confidence: 0.72,
+        salaryRange: '$75,000 - $140,000',
+        growthOutlook: 'High demand (+25% growth)',
+        description: 'Build and maintain the infrastructure that powers modern applications.'
       },
       'UX Designer': {
         title: 'UX/UI Designer',
@@ -81,15 +82,144 @@ export const CareerAnalyzer = ({ profile, preferences, onCareerSelect }: CareerA
         growthOutlook: 'Growing demand (+18% growth)',
         description: 'Create intuitive and beautiful interfaces that solve real user problems.'
       },
-      'DevOps Engineer': {
-        title: 'DevOps Engineer',
-        whyFit: 'Your technical skills and systematic approach are perfect for modern infrastructure.',
-        primarySkills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
-        confidence: 0.72,
-        salaryRange: '$75,000 - $140,000',
-        growthOutlook: 'High demand (+25% growth)',
-        description: 'Build and maintain the infrastructure that powers modern applications.'
+      
+      // Legal Careers
+      'Corporate Lawyer': {
+        title: 'Corporate Lawyer',
+        whyFit: 'Your analytical thinking and attention to detail make you perfect for complex legal matters.',
+        primarySkills: ['Contract Law', 'Legal Research', 'Negotiation', 'Regulatory Compliance', 'Due Diligence'],
+        confidence: 0.82,
+        salaryRange: '$95,000 - $200,000',
+        growthOutlook: 'Steady demand (+8% growth)',
+        description: 'Advise businesses on legal matters, mergers, acquisitions, and regulatory compliance.'
       },
+      'Immigration Lawyer': {
+        title: 'Immigration Lawyer',
+        whyFit: 'Your communication skills and empathy are ideal for helping people navigate complex immigration laws.',
+        primarySkills: ['Immigration Law', 'Client Counseling', 'Documentation', 'Court Representation', 'Case Management'],
+        confidence: 0.79,
+        salaryRange: '$65,000 - $130,000',
+        growthOutlook: 'Growing demand (+12% growth)',
+        description: 'Help individuals and families navigate immigration processes and represent them in legal proceedings.'
+      },
+      'Litigation Attorney': {
+        title: 'Litigation Attorney',
+        whyFit: 'Your persuasive communication and strategic thinking are perfect for courtroom advocacy.',
+        primarySkills: ['Trial Advocacy', 'Legal Writing', 'Discovery', 'Depositions', 'Settlement Negotiation'],
+        confidence: 0.81,
+        salaryRange: '$70,000 - $180,000',
+        growthOutlook: 'Stable demand (+6% growth)',
+        description: 'Represent clients in civil and criminal cases, from pre-trial through appeals.'
+      },
+      
+      // Finance & Accounting
+      'Chartered Accountant': {
+        title: 'Chartered Accountant (CA)',
+        whyFit: 'Your mathematical aptitude and attention to detail are essential for financial accuracy and compliance.',
+        primarySkills: ['Financial Accounting', 'Auditing', 'Tax Planning', 'GAAP', 'Financial Analysis'],
+        confidence: 0.83,
+        salaryRange: '$55,000 - $120,000',
+        growthOutlook: 'Steady demand (+7% growth)',
+        description: 'Manage financial records, conduct audits, and provide tax and financial advisory services.'
+      },
+      'Investment Banker': {
+        title: 'Investment Banker',
+        whyFit: 'Your analytical skills and high-pressure performance ability are ideal for financial markets.',
+        primarySkills: ['Financial Modeling', 'Valuation', 'Market Analysis', 'Client Relations', 'Deal Structuring'],
+        confidence: 0.80,
+        salaryRange: '$85,000 - $250,000',
+        growthOutlook: 'Competitive growth (+10% growth)',
+        description: 'Help companies raise capital, execute mergers and acquisitions, and provide strategic financial advice.'
+      },
+      'Financial Advisor': {
+        title: 'Financial Advisor',
+        whyFit: 'Your interpersonal skills and analytical mindset are perfect for helping clients achieve financial goals.',
+        primarySkills: ['Financial Planning', 'Investment Strategy', 'Risk Assessment', 'Client Relations', 'Portfolio Management'],
+        confidence: 0.78,
+        salaryRange: '$50,000 - $150,000',
+        growthOutlook: 'Strong demand (+15% growth)',
+        description: 'Guide individuals and businesses in making informed financial decisions and investment strategies.'
+      },
+      
+      // Healthcare
+      'Physician': {
+        title: 'Physician (MD)',
+        whyFit: 'Your compassion, analytical thinking, and dedication to helping others are essential for medical practice.',
+        primarySkills: ['Medical Diagnosis', 'Patient Care', 'Clinical Research', 'Medical Ethics', 'Treatment Planning'],
+        confidence: 0.85,
+        salaryRange: '$150,000 - $400,000',
+        growthOutlook: 'High demand (+18% growth)',
+        description: 'Diagnose and treat patients, conduct medical research, and improve healthcare outcomes.'
+      },
+      'Physical Therapist': {
+        title: 'Physical Therapist',
+        whyFit: 'Your empathy and problem-solving skills are perfect for helping patients recover and improve mobility.',
+        primarySkills: ['Rehabilitation', 'Exercise Therapy', 'Patient Assessment', 'Treatment Planning', 'Manual Therapy'],
+        confidence: 0.82,
+        salaryRange: '$75,000 - $110,000',
+        growthOutlook: 'Exceptional demand (+28% growth)',
+        description: 'Help patients recover from injuries and improve their physical function and quality of life.'
+      },
+      'Mental Health Counselor': {
+        title: 'Mental Health Counselor',
+        whyFit: 'Your empathy and communication skills are ideal for supporting people through mental health challenges.',
+        primarySkills: ['Counseling Techniques', 'Crisis Intervention', 'Treatment Planning', 'Group Therapy', 'Assessment'],
+        confidence: 0.79,
+        salaryRange: '$45,000 - $85,000',
+        growthOutlook: 'Very high demand (+25% growth)',
+        description: 'Provide therapy and support to individuals dealing with mental health and substance abuse issues.'
+      },
+      
+      // Business & Management
+      'Management Consultant': {
+        title: 'Management Consultant',
+        whyFit: 'Your strategic thinking and problem-solving abilities are perfect for helping organizations improve.',
+        primarySkills: ['Strategy Development', 'Process Improvement', 'Data Analysis', 'Client Presentation', 'Change Management'],
+        confidence: 0.81,
+        salaryRange: '$75,000 - $180,000',
+        growthOutlook: 'Strong demand (+14% growth)',
+        description: 'Analyze business problems and develop solutions to help organizations operate more effectively.'
+      },
+      'Product Manager': {
+        title: 'Product Manager',
+        whyFit: 'Your communication skills and strategic thinking are perfect for leading product development.',
+        primarySkills: ['Analytics', 'Strategy', 'Communication', 'Agile', 'User Research'],
+        confidence: 0.75,
+        salaryRange: '$90,000 - $160,000',
+        growthOutlook: 'Strong demand (+20% growth)',
+        description: 'Guide product vision and work with teams to deliver solutions users love.'
+      },
+      'Human Resources Manager': {
+        title: 'Human Resources Manager',
+        whyFit: 'Your interpersonal skills and organizational abilities are ideal for managing workplace culture.',
+        primarySkills: ['Talent Acquisition', 'Employee Relations', 'Performance Management', 'HR Policies', 'Conflict Resolution'],
+        confidence: 0.77,
+        salaryRange: '$60,000 - $120,000',
+        growthOutlook: 'Steady demand (+9% growth)',
+        description: 'Develop HR strategies, recruit talent, and create positive workplace environments.'
+      },
+      
+      // Education
+      'College Professor': {
+        title: 'College Professor',
+        whyFit: 'Your knowledge and passion for sharing expertise make you ideal for higher education.',
+        primarySkills: ['Research', 'Teaching', 'Academic Writing', 'Curriculum Development', 'Student Mentoring'],
+        confidence: 0.80,
+        salaryRange: '$50,000 - $120,000',
+        growthOutlook: 'Moderate growth (+12% growth)',
+        description: 'Conduct research, teach courses, and mentor students in your area of expertise.'
+      },
+      'School Principal': {
+        title: 'School Principal',
+        whyFit: 'Your leadership skills and educational vision are perfect for guiding academic institutions.',
+        primarySkills: ['Educational Leadership', 'Staff Management', 'Curriculum Oversight', 'Budget Management', 'Community Relations'],
+        confidence: 0.78,
+        salaryRange: '$70,000 - $130,000',
+        growthOutlook: 'Steady demand (+8% growth)',
+        description: 'Lead schools, manage staff, and ensure high-quality education for all students.'
+      },
+      
+      // Creative Industries
       'Marketing Manager': {
         title: 'Digital Marketing Manager',
         whyFit: 'Your creativity and analytical skills make you perfect for data-driven marketing.',
@@ -98,6 +228,44 @@ export const CareerAnalyzer = ({ profile, preferences, onCareerSelect }: CareerA
         salaryRange: '$55,000 - $110,000',
         growthOutlook: 'Strong demand (+15% growth)',
         description: 'Drive growth through creative campaigns and data-driven marketing strategies.'
+      },
+      'Architect': {
+        title: 'Architect',
+        whyFit: 'Your creative vision and technical precision are ideal for designing functional spaces.',
+        primarySkills: ['Design Software', 'Building Codes', 'Project Management', '3D Modeling', 'Sustainability'],
+        confidence: 0.76,
+        salaryRange: '$65,000 - $130,000',
+        growthOutlook: 'Moderate growth (+8% growth)',
+        description: 'Design buildings and spaces that are both functional and aesthetically pleasing.'
+      },
+      'Graphic Designer': {
+        title: 'Graphic Designer',
+        whyFit: 'Your artistic abilities and attention to visual detail are perfect for creating compelling designs.',
+        primarySkills: ['Adobe Creative Suite', 'Typography', 'Branding', 'Layout Design', 'Visual Communication'],
+        confidence: 0.74,
+        salaryRange: '$40,000 - $75,000',
+        growthOutlook: 'Steady demand (+5% growth)',
+        description: 'Create visual concepts that communicate ideas and inspire audiences across various media.'
+      },
+      
+      // Science & Engineering
+      'Civil Engineer': {
+        title: 'Civil Engineer',
+        whyFit: 'Your mathematical skills and systematic approach are ideal for infrastructure development.',
+        primarySkills: ['Structural Analysis', 'CAD Software', 'Project Management', 'Environmental Compliance', 'Construction Materials'],
+        confidence: 0.79,
+        salaryRange: '$70,000 - $120,000',
+        growthOutlook: 'Growing demand (+11% growth)',
+        description: 'Design and oversee construction of infrastructure projects like roads, bridges, and buildings.'
+      },
+      'Research Scientist': {
+        title: 'Research Scientist',
+        whyFit: 'Your curiosity and analytical mindset are perfect for advancing scientific knowledge.',
+        primarySkills: ['Research Methodology', 'Data Analysis', 'Laboratory Techniques', 'Scientific Writing', 'Grant Writing'],
+        confidence: 0.81,
+        salaryRange: '$60,000 - $130,000',
+        growthOutlook: 'Strong demand (+17% growth)',
+        description: 'Conduct experiments and research to advance scientific understanding and develop new technologies.'
       }
     };
 
