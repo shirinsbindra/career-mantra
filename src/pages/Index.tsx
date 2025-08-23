@@ -6,8 +6,9 @@ import { CareerAnalyzer } from '@/components/CareerAnalyzer';
 import { Dashboard } from '@/components/Dashboard';
 import { Roadmap } from '@/components/Roadmap';
 import { ScheduleStudyTime } from '@/components/ScheduleStudyTime';
+import { InterviewSimulator } from '@/components/InterviewSimulator';
 
-type AppState = 'landing' | 'upload' | 'alignment' | 'analysis' | 'dashboard' | 'roadmap' | 'schedule';
+type AppState = 'landing' | 'upload' | 'alignment' | 'analysis' | 'dashboard' | 'roadmap' | 'schedule' | 'interview';
 
 const Index = () => {
   const [currentState, setCurrentState] = useState<AppState>('landing');
@@ -35,8 +36,7 @@ const Index = () => {
   };
 
   const handleRetakeInterview = () => {
-    // Handle interview flow
-    console.log('Starting mock interview...');
+    setCurrentState('interview');
   };
 
   const handleExploreCareer = () => {
@@ -102,6 +102,16 @@ const Index = () => {
         return preferences ? (
           <ScheduleStudyTime
             preferences={preferences}
+            onBack={handleBackToDashboard}
+          />
+        ) : null;
+      
+      case 'interview':
+        return profile && preferences && selectedCareer ? (
+          <InterviewSimulator
+            profile={profile}
+            preferences={preferences}
+            selectedCareer={selectedCareer}
             onBack={handleBackToDashboard}
           />
         ) : null;
