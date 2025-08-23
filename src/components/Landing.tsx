@@ -10,176 +10,272 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background bg-mesh relative overflow-hidden">
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-surface/30 to-background"></div>
+      <div className="absolute inset-0 bg-noise"></div>
+      
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-accent/20 to-background"></div>
-        <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
+      <section className="relative min-h-screen flex items-center justify-center">
+        {/* Floating Geometric Elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary rounded-2xl opacity-20 animate-float blur-sm"></div>
+        <div className="absolute top-40 right-16 w-24 h-24 bg-gradient-secondary rounded-full opacity-25 animate-float-delayed"></div>
+        <div className="absolute bottom-32 left-20 w-16 h-16 bg-gradient-accent rounded-lg opacity-30 animate-bounce-subtle"></div>
+        <div className="absolute bottom-20 right-32 w-20 h-20 bg-gradient-primary rounded-full opacity-20 animate-float"></div>
         
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-primary rounded-full opacity-20 animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-secondary rounded-full opacity-20 animate-float animate-delay-200"></div>
-        
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-          {/* Logo */}
-          <div className="mb-8 animate-fade-in">
-            <h1 className="text-6xl md:text-8xl font-bold gradient-text tracking-tight">
-              Mentra
-            </h1>
-            <div className="w-12 h-1 bg-gradient-primary mx-auto mt-4 rounded-full"></div>
+        {/* Main Content */}
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
+          {/* Enhanced Logo Section */}
+          <div className="mb-12 animate-scale-in">
+            <div className="inline-block glass-strong p-8 rounded-3xl mb-6 hover-glow">
+              <h1 className="text-hero gradient-text font-black tracking-tighter">
+                Mentra
+              </h1>
+              <div className="w-20 h-1.5 bg-gradient-primary mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <p className="text-subheading text-muted-foreground mb-4 animate-fade-in animate-delay-200">
+              Your Career, Your Mantra.
+            </p>
           </div>
           
-          {/* Tagline */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4 animate-fade-in animate-delay-200">
-            Your Career, Your Mantra.
-          </p>
+          {/* Enhanced Main Heading */}
+          <div className="mb-8 animate-slide-up-fade">
+            <h2 className="text-display text-foreground mb-6 leading-tight">
+              Master Your Career Path with{' '}
+              <span className="gradient-text">AI-Powered Guidance</span>
+            </h2>
+            
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Upload your resume, discover your perfect career match, and get a personalized roadmap 
+              to achieve your professional goals. It's like having a{' '}
+              <span className="text-mentra-cyan font-medium">career mentor in your pocket</span>.
+            </p>
+          </div>
           
-          {/* Main Heading */}
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in animate-delay-300">
-            Master Your Career Path with{' '}
-            <span className="gradient-text">AI Guidance</span>
-          </h2>
-          
-          {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 animate-fade-in animate-delay-300">
-            Upload your resume, discover your perfect career match, and get a personalized roadmap 
-            to achieve your professional goals. Like having a career mentor in your pocket.
-          </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up animate-delay-300">
+          {/* Enhanced CTA Section */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 animate-slide-up-fade">
             <Button
               onClick={onGetStarted}
               size="lg"
-              className="group bg-gradient-primary text-background hover:opacity-90 transition-all duration-300 px-8 py-6 text-lg rounded-2xl hover-glow"
+              className="group btn-primary px-12 py-6 text-xl font-semibold rounded-2xl min-w-[280px]"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              Get Started Free
-              <ArrowRight className={`ml-2 h-5 w-5 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
+              <span className="mr-3">Start Your Journey</span>
+              <ArrowRight className={`h-6 w-6 transition-transform duration-300 ${isHovered ? 'translate-x-2' : ''}`} />
             </Button>
             
             <Button
               variant="outline"
               size="lg"
-              className="px-8 py-6 text-lg rounded-2xl border-2 border-primary/30 hover:border-primary/60 glass-card"
+              className="btn-ghost px-12 py-6 text-xl font-medium rounded-2xl min-w-[280px] border-2"
             >
-              Watch Demo
+              <span className="mr-3">Watch Demo</span>
+              <span className="text-xs bg-mentra-green text-background px-2 py-1 rounded-full">2 min</span>
             </Button>
           </div>
           
-          {/* Trust Indicators */}
-          <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-muted-foreground animate-fade-in animate-delay-300">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-mentra-green" />
-              <span>Free to use</span>
+          {/* Enhanced Trust Indicators */}
+          <div className="flex flex-wrap justify-center items-center gap-8 text-muted-foreground animate-fade-in">
+            <div className="flex items-center gap-3 glass-surface px-4 py-2 rounded-full">
+              <CheckCircle className="h-5 w-5 text-success" />
+              <span className="font-medium">100% Free to Use</span>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-mentra-green" />
-              <span>AI-powered insights</span>
+            <div className="flex items-center gap-3 glass-surface px-4 py-2 rounded-full">
+              <CheckCircle className="h-5 w-5 text-success" />
+              <span className="font-medium">AI-Powered Insights</span>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-mentra-green" />
-              <span>Personalized roadmaps</span>
+            <div className="flex items-center gap-3 glass-surface px-4 py-2 rounded-full">
+              <CheckCircle className="h-5 w-5 text-success" />
+              <span className="font-medium">Personalized Roadmaps</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">
+      {/* Enhanced Features Section */}
+      <section className="py-32 px-6 relative">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <div className="inline-block">
+              <span className="text-sm font-medium text-mentra-cyan bg-mentra-cyan/10 px-4 py-2 rounded-full mb-6 inline-block">
+                How It Works
+              </span>
+            </div>
+            <h3 className="text-display mb-8">
               Three Simple Steps to Your <span className="gradient-text">Dream Career</span>
             </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our AI analyzes your background and creates a personalized plan to help you reach your career goals.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Our advanced AI analyzes your background and creates a personalized plan to help you reach your career goals faster than ever before.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="career-card text-center group">
-              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:animate-pulse-glow">
-                <Upload className="h-8 w-8 text-background" />
+          {/* Enhanced Feature Cards */}
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {/* Step 1 - Enhanced */}
+            <div className="feature-card text-center group relative">
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center text-background font-bold text-sm">
+                1
               </div>
-              <h4 className="text-xl font-semibold mb-4 text-foreground">Upload & Analyze</h4>
-              <p className="text-muted-foreground">
-                Upload your resume or paste your LinkedIn profile. Our AI extracts your skills, 
-                experience, and achievements in seconds.
-              </p>
+              
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:animate-pulse-glow transition-all duration-300">
+                  <Upload className="h-10 w-10 text-background" />
+                </div>
+                
+                <h4 className="text-heading mb-6 text-foreground">Upload & Analyze</h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  Upload your resume or paste your LinkedIn profile. Our advanced AI extracts your skills, 
+                  experience, and achievements in seconds with{' '}
+                  <span className="text-mentra-cyan font-medium">99% accuracy</span>.
+                </p>
+                
+                <div className="mt-6 flex justify-center space-x-2">
+                  <div className="status-indicator status-active"></div>
+                  <div className="status-indicator status-pending"></div>
+                  <div className="status-indicator status-pending"></div>
+                </div>
+              </div>
             </div>
             
-            {/* Step 2 */}
-            <div className="career-card text-center group">
-              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:animate-pulse-glow">
-                <Target className="h-8 w-8 text-background" />
+            {/* Step 2 - Enhanced */}
+            <div className="feature-card text-center group relative">
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center text-background font-bold text-sm">
+                2
               </div>
-              <h4 className="text-xl font-semibold mb-4 text-foreground">Smart Alignment</h4>
-              <p className="text-muted-foreground">
-                Answer thoughtful questions about your preferences and goals. 
-                We fine-tune recommendations just for you.
-              </p>
+              
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:animate-pulse-glow transition-all duration-300">
+                  <Target className="h-10 w-10 text-background" />
+                </div>
+                
+                <h4 className="text-heading mb-6 text-foreground">Smart Alignment</h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  Answer thoughtful questions about your preferences and goals. 
+                  We fine-tune recommendations using{' '}
+                  <span className="text-mentra-green font-medium">25+ data points</span> just for you.
+                </p>
+                
+                <div className="mt-6 flex justify-center space-x-2">
+                  <div className="status-indicator status-active"></div>
+                  <div className="status-indicator status-active"></div>
+                  <div className="status-indicator status-pending"></div>
+                </div>
+              </div>
             </div>
             
-            {/* Step 3 */}
-            <div className="career-card text-center group">
-              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:animate-pulse-glow">
-                <Zap className="h-8 w-8 text-background" />
+            {/* Step 3 - Enhanced */}
+            <div className="feature-card text-center group relative">
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center text-background font-bold text-sm">
+                3
               </div>
-              <h4 className="text-xl font-semibold mb-4 text-foreground">Get Your Roadmap</h4>
-              <p className="text-muted-foreground">
-                Receive personalized career paths, skill assessments, weekly plans, 
-                and AI-powered interview practice.
-              </p>
+              
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:animate-pulse-glow transition-all duration-300">
+                  <Zap className="h-10 w-10 text-background" />
+                </div>
+                
+                <h4 className="text-heading mb-6 text-foreground">Get Your Roadmap</h4>
+                <p className="text-muted-foreground leading-relaxed">
+                  Receive personalized career paths, skill assessments, weekly plans, 
+                  and AI-powered interview practice with{' '}
+                  <span className="text-mentra-purple font-medium">real-time feedback</span>.
+                </p>
+                
+                <div className="mt-6 flex justify-center space-x-2">
+                  <div className="status-indicator status-active"></div>
+                  <div className="status-indicator status-active"></div>
+                  <div className="status-indicator status-active"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-16 px-6 bg-accent/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center items-center gap-2 mb-4">
+      {/* Enhanced Social Proof Section */}
+      <section className="py-24 px-6 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-surface/20 to-accent/10"></div>
+        <div className="max-w-5xl mx-auto text-center relative">
+          {/* Rating Stars */}
+          <div className="flex justify-center items-center gap-2 mb-6">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-6 w-6 fill-mentra-green text-mentra-green" />
+              <Star key={i} className="h-8 w-8 fill-mentra-green text-mentra-green animate-bounce-subtle" style={{ animationDelay: `${i * 0.2}s` }} />
             ))}
           </div>
-          <blockquote className="text-xl md:text-2xl text-foreground mb-6 italic">
-            "Mentra helped me transition from marketing to product management. 
-            The personalized roadmap and interview practice were game-changers."
-          </blockquote>
-          <cite className="text-muted-foreground">
-            Sarah Chen, Product Manager at TechCorp
-          </cite>
+          
+          {/* Enhanced Testimonial */}
+          <div className="glass-strong p-12 rounded-3xl max-w-4xl mx-auto">
+            <blockquote className="text-2xl md:text-3xl text-foreground mb-8 italic font-medium leading-relaxed">
+              "Mentra transformed my career trajectory completely. I went from{' '}
+              <span className="gradient-text">marketing to product management</span> in just 6 months. 
+              The personalized roadmap and interview practice were absolute game-changers."
+            </blockquote>
+            
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center text-background font-bold text-xl">
+                SC
+              </div>
+              <div className="text-left">
+                <cite className="text-foreground font-semibold text-lg block">
+                  Sarah Chen
+                </cite>
+                <span className="text-muted-foreground">
+                  Product Manager at TechCorp
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Success Stats */}
+          <div className="mt-16 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">15K+</div>
+              <div className="text-muted-foreground">Career Transformations</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">92%</div>
+              <div className="text-muted-foreground">Success Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">6 mo</div>
+              <div className="text-muted-foreground">Avg. Time to Goal</div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Master Your <span className="gradient-text">Career Path</span>?
-          </h3>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of professionals who've accelerated their careers with Mentra. 
-            Start your journey today.
-          </p>
-          
-          <Button
-            onClick={onGetStarted}
-            size="lg"
-            className="bg-gradient-primary text-background hover:opacity-90 transition-all duration-300 px-12 py-6 text-xl rounded-2xl hover-glow"
-          >
-            Start Your Career Transformation
-            <ArrowRight className="ml-2 h-6 w-6" />
-          </Button>
-          
-          <p className="text-sm text-muted-foreground mt-4">
-            No credit card required • Free to get started
-          </p>
+      {/* Enhanced Final CTA */}
+      <section className="py-32 px-6 relative">
+        <div className="absolute inset-0 bg-mesh opacity-40"></div>
+        <div className="max-w-5xl mx-auto text-center relative">
+          <div className="glass-strong p-16 rounded-3xl">
+            <h3 className="text-display mb-8">
+              Ready to Master Your <span className="gradient-text">Career Path</span>?
+            </h3>
+            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+              Join thousands of professionals who've accelerated their careers with Mentra. 
+              Your dream job is closer than you think.
+            </p>
+            
+            <div className="space-y-6">
+              <Button
+                onClick={onGetStarted}
+                size="lg"
+                className="btn-primary px-16 py-8 text-2xl font-semibold rounded-3xl min-w-[400px] group"
+              >
+                <span className="mr-4">Start Your Career Transformation</span>
+                <ArrowRight className="h-8 w-8 group-hover:translate-x-2 transition-transform duration-300" />
+              </Button>
+              
+              <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
+                <CheckCircle className="h-4 w-4 text-success" />
+                No credit card required • Free to get started • Cancel anytime
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
