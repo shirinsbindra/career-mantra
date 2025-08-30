@@ -17,16 +17,16 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center">
-        {/* Floating Geometric Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary rounded-2xl opacity-20 animate-float blur-sm"></div>
-        <div className="absolute top-40 right-16 w-24 h-24 bg-gradient-secondary rounded-full opacity-25 animate-float-delayed"></div>
-        <div className="absolute bottom-32 left-20 w-16 h-16 bg-gradient-accent rounded-lg opacity-30 animate-bounce-subtle"></div>
-        <div className="absolute bottom-20 right-32 w-20 h-20 bg-gradient-primary rounded-full opacity-20 animate-float"></div>
+        {/* Static Geometric Elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary rounded-2xl opacity-20 blur-sm"></div>
+        <div className="absolute top-40 right-16 w-24 h-24 bg-gradient-secondary rounded-full opacity-25"></div>
+        <div className="absolute bottom-32 left-20 w-16 h-16 bg-gradient-accent rounded-lg opacity-30"></div>
+        <div className="absolute bottom-20 right-32 w-20 h-20 bg-gradient-primary rounded-full opacity-20"></div>
         
         {/* Main Content */}
         <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
           {/* Enhanced Logo Section */}
-          <div className="mb-12 animate-scale-in">
+          <div className="mb-12">
             <div className="inline-block glass-strong p-8 rounded-3xl mb-6 hover-glow">
               <h1 className="text-hero gradient-text font-black tracking-tighter">
                 Mentra
@@ -34,13 +34,13 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
               <div className="w-20 h-1.5 bg-gradient-primary mx-auto mt-6 rounded-full"></div>
             </div>
             
-            <p className="text-subheading text-muted-foreground mb-4 animate-fade-in animate-delay-200">
+            <p className="text-subheading text-muted-foreground mb-4">
               Your Career, Your Mantra.
             </p>
           </div>
           
           {/* Enhanced Main Heading */}
-          <div className="mb-8 animate-slide-up-fade">
+          <div className="mb-8">
             <h2 className="text-display text-foreground mb-6 leading-tight">
               Master Your Career Path with{' '}
               <span className="gradient-text">AI-Powered Guidance</span>
@@ -54,7 +54,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
           </div>
           
           {/* Enhanced CTA Section */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 animate-slide-up-fade">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <Button
               onClick={onGetStarted}
               size="lg"
@@ -77,7 +77,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
           </div>
           
           {/* Enhanced Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-8 text-muted-foreground animate-fade-in">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-muted-foreground">
             <div className="flex items-center gap-3 glass-surface px-4 py-2 rounded-full">
               <CheckCircle className="h-5 w-5 text-success" />
               <span className="font-medium">100% Free to Use</span>
@@ -121,7 +121,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
               </div>
               
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:animate-pulse-glow transition-all duration-300">
+                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 transition-all duration-300">
                   <Upload className="h-10 w-10 text-background" />
                 </div>
                 
@@ -147,7 +147,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
               </div>
               
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:animate-pulse-glow transition-all duration-300">
+                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 transition-all duration-300">
                   <Target className="h-10 w-10 text-background" />
                 </div>
                 
@@ -173,7 +173,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
               </div>
               
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:animate-pulse-glow transition-all duration-300">
+                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-8 transition-all duration-300">
                   <Zap className="h-10 w-10 text-background" />
                 </div>
                 
@@ -202,7 +202,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
           {/* Rating Stars */}
           <div className="flex justify-center items-center gap-2 mb-6">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-8 w-8 fill-mentra-green text-mentra-green animate-bounce-subtle" style={{ animationDelay: `${i * 0.2}s` }} />
+              <Star key={i} className="h-8 w-8 fill-mentra-green text-mentra-green" />
             ))}
           </div>
           
