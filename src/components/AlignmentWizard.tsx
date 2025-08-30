@@ -18,9 +18,42 @@ export interface UserPreferences {
 }
 
 const careerOptions = [
-  'Data Scientist', 'Frontend Developer', 'Product Manager', 'UX Designer',
-  'Backend Developer', 'Marketing Manager', 'DevOps Engineer', 'Business Analyst',
-  'Full Stack Developer', 'Data Analyst', 'Project Manager', 'Content Creator'
+  // Technology
+  'Data Scientist', 'Frontend Developer', 'Backend Developer', 'Full Stack Developer',
+  'DevOps Engineer', 'UX/UI Designer', 'Product Manager', 'Data Analyst',
+  'Software Engineer', 'Machine Learning Engineer', 'Cybersecurity Analyst',
+  
+  // Legal & Law
+  'Corporate Lawyer', 'Immigration Lawyer', 'Litigation Attorney', 'Legal Consultant',
+  'Paralegal', 'Legal Advisor', 'Family Lawyer', 'Criminal Defense Attorney',
+  
+  // Finance & Accounting  
+  'Chartered Accountant', 'Investment Banker', 'Financial Advisor', 'Tax Consultant',
+  'Auditor', 'Financial Analyst', 'Bookkeeper', 'Risk Analyst',
+  
+  // Healthcare & Medicine
+  'Physician', 'Surgeon', 'Nurse', 'Physical Therapist', 'Mental Health Counselor',
+  'Dentist', 'Pharmacist', 'Medical Technician', 'Healthcare Administrator',
+  
+  // Business & Management
+  'Business Analyst', 'Management Consultant', 'Operations Manager', 'Sales Manager',
+  'Human Resources Manager', 'Project Manager', 'Marketing Manager', 'Account Manager',
+  
+  // Education
+  'College Professor', 'School Principal', 'Teacher', 'Education Consultant',
+  'Training Specialist', 'Academic Advisor', 'Curriculum Designer',
+  
+  // Creative & Media
+  'Graphic Designer', 'Content Creator', 'Digital Marketing Specialist', 'Architect',
+  'Interior Designer', 'Video Editor', 'Photographer', 'Social Media Manager',
+  
+  // Science & Engineering
+  'Civil Engineer', 'Mechanical Engineer', 'Research Scientist', 'Environmental Scientist',
+  'Chemical Engineer', 'Biomedical Engineer', 'Lab Technician',
+  
+  // Other Professions
+  'Real Estate Agent', 'Chef', 'Personal Trainer', 'Event Planner',
+  'Travel Agent', 'Insurance Agent', 'Consultant', 'Entrepreneur'
 ];
 
 const environmentOptions = [

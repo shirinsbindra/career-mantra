@@ -8,23 +8,23 @@ interface LandingProps {
 export const Landing = ({ onGetStarted }: LandingProps) => {
   return (
     <div className="min-h-screen bg-background bg-mesh relative overflow-hidden">
-      {/* Enhanced Background Effects */}
+      {/* Static Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-surface/30 to-background"></div>
-      <div className="absolute inset-0 bg-noise"></div>
+      <div className="absolute inset-0 bg-noise opacity-30"></div>
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center">
         {/* Static Geometric Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary rounded-2xl opacity-20 blur-sm"></div>
-        <div className="absolute top-40 right-16 w-24 h-24 bg-gradient-secondary rounded-full opacity-25"></div>
-        <div className="absolute bottom-32 left-20 w-16 h-16 bg-gradient-accent rounded-lg opacity-30"></div>
-        <div className="absolute bottom-20 right-32 w-20 h-20 bg-gradient-primary rounded-full opacity-20"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-primary rounded-2xl opacity-10"></div>
+        <div className="absolute top-40 right-16 w-24 h-24 bg-gradient-secondary rounded-full opacity-15"></div>
+        <div className="absolute bottom-32 left-20 w-16 h-16 bg-gradient-accent rounded-lg opacity-10"></div>
+        <div className="absolute bottom-20 right-32 w-20 h-20 bg-gradient-primary rounded-full opacity-10"></div>
         
         {/* Main Content */}
         <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
           {/* Enhanced Logo Section */}
           <div className="mb-12">
-            <div className="inline-block glass-strong p-8 rounded-3xl mb-6 hover-glow">
+            <div className="inline-block glass-strong p-8 rounded-3xl mb-6">
               <h1 className="text-hero gradient-text font-black tracking-tighter">
                 Mentra AI
               </h1>
