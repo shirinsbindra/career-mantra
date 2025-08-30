@@ -65,6 +65,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
               variant="outline"
               size="lg"
               className="btn-ghost px-12 py-6 text-xl font-medium rounded-2xl min-w-[280px] border-2"
+              onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}
             >
               <span className="mr-3">Watch Demo</span>
               <span className="text-xs bg-mentra-green text-background px-2 py-1 rounded-full">2 min</span>
