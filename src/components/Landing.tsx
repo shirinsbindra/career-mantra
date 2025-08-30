@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ArrowRight, Upload, Target, Zap, Star, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -7,8 +6,6 @@ interface LandingProps {
 }
 
 export const Landing = ({ onGetStarted }: LandingProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <div className="min-h-screen bg-background bg-mesh relative overflow-hidden">
       {/* Enhanced Background Effects */}
@@ -29,7 +26,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
           <div className="mb-12">
             <div className="inline-block glass-strong p-8 rounded-3xl mb-6 hover-glow">
               <h1 className="text-hero gradient-text font-black tracking-tighter">
-                Mentra
+                Mentra AI
               </h1>
               <div className="w-20 h-1.5 bg-gradient-primary mx-auto mt-6 rounded-full"></div>
             </div>
@@ -59,11 +56,9 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
               onClick={onGetStarted}
               size="lg"
               className="group btn-primary px-12 py-6 text-xl font-semibold rounded-2xl min-w-[280px]"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
             >
               <span className="mr-3">Start Your Journey</span>
-              <ArrowRight className={`h-6 w-6 transition-transform duration-300 ${isHovered ? 'translate-x-2' : ''}`} />
+              <ArrowRight className="h-6 w-6" />
             </Button>
             
             <Button
@@ -209,7 +204,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
           {/* Enhanced Testimonial */}
           <div className="glass-strong p-12 rounded-3xl max-w-4xl mx-auto">
             <blockquote className="text-2xl md:text-3xl text-foreground mb-8 italic font-medium leading-relaxed">
-              "Mentra transformed my career trajectory completely. I went from{' '}
+              "Mentra AI transformed my career trajectory completely. I went from{' '}
               <span className="gradient-text">marketing to product management</span> in just 6 months. 
               The personalized roadmap and interview practice were absolute game-changers."
             </blockquote>
@@ -256,7 +251,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
               Ready to Master Your <span className="gradient-text">Career Path</span>?
             </h3>
             <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              Join thousands of professionals who've accelerated their careers with Mentra. 
+              Join thousands of professionals who've accelerated their careers with Mentra AI. 
               Your dream job is closer than you think.
             </p>
             
@@ -267,7 +262,7 @@ export const Landing = ({ onGetStarted }: LandingProps) => {
                 className="btn-primary px-16 py-8 text-2xl font-semibold rounded-3xl min-w-[400px] group"
               >
                 <span className="mr-4">Start Your Career Transformation</span>
-                <ArrowRight className="h-8 w-8 group-hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="h-8 w-8" />
               </Button>
               
               <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
